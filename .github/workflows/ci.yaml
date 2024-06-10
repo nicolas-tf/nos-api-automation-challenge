@@ -2,6 +2,8 @@ name: Cypress Single Execution
 
 on: 
   workflow_dispatch:
+    branches:
+      - '**' 
   pull_request:
     branches:
     - master

@@ -2,6 +2,8 @@ name: Cypress Parallel Execution
 
 on: 
   workflow_dispatch:
+    branches:
+      - '**' 
   pull_request:
     branches:
     - master
