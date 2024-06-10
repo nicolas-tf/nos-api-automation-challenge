@@ -1,0 +1,7 @@
+# Modules dirs
+node_modules/
+cypress/screenshots/
+cypress/downloads/
+
+# Secrets variables
+cypress.env.json

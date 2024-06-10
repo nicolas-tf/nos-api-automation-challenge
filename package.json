@@ -1,0 +1,27 @@
+{
+  "name": "nos-api-automation-challenge",
+  "version": "1.0.0",
+  "description": "Challenge NOS API automation (https://gorest.co.in/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolas-tf/nos-api-automation-challenge.git"
+  },
+  "keywords": [],
+  "author": "Nicolas Ferreira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolas-tf/nos-api-automation-challenge/issues"
+  },
+  "homepage": "https://github.com/nicolas-tf/nos-api-automation-challenge#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "allure-commandline": "^2.29.0",
+    "allure-cypress": "^2.14.0",
+    "cypress": "^13.11.0",
+    "cypress-plugin-api": "^2.11.1"
+  }
+}
