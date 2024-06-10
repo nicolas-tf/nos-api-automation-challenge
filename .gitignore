@@ -1,0 +1,8 @@
+# Modules dirs
+allure-results/
+node_modules/
+cypress/screenshots/
+cypress/downloads/
+
+# Secrets variables
+cypress.env.json
