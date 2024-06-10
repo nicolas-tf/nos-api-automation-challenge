@@ -4,7 +4,25 @@
   "description": "Challenge NOS API automation (https://gorest.co.in/)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "all": "npx cypress run",
+    "health": "npx cypress run -s cypress/e2e/health/*",
+
+    "user": "npx cypress run -s cypress/e2e/user/*",
+    "delete-user": "npx cypress run -s cypress/e2e/user/delete*",
+    "get-user": "npx cypress run -s cypress/e2e/user/get*",
+    "patch-user": "npx cypress run -s cypress/e2e/user/patch*",
+    "post-user": "npx cypress run -s cypress/e2e/user/post*",
+    "put-user": "npx cypress run -s cypress/e2e/user/put*",
+
+    "all:report": "npx cypress run && npx allure serve allure-results",
+    "health:report": "npx cypress run -s cypress/e2e/health/* && npx allure serve allure-results",
+
+    "user:report": "npx cypress run -s cypress/e2e/user/* && npx allure serve allure-results",
+    "delete-user:report": "npx cypress run -s cypress/e2e/user/delete* && npx allure serve allure-results",
+    "get-user:report": "npx cypress run -s cypress/e2e/user/get* && npx allure serve allure-results",
+    "patch-user:report": "npx cypress run -s cypress/e2e/user/patch* && npx allure serve allure-results",
+    "post-user:report": "npx cypress run -s cypress/e2e/user/post* && npx allure serve allure-results",
+    "put-user:report": "npx cypress run -s cypress/e2e/user/put* && npx allure serve allure-results"
   },
   "repository": {
     "type": "git",
