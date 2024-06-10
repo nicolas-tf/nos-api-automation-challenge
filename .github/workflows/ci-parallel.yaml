@@ -1,0 +1,136 @@
+name: Cypress Parallel Execution
+
+on: [workflow_dispatch, push]
+
+jobs:
+
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v3
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v4
+        with:
+          command: npm run health
+        env:
+          CYPRESS_ACCESS_TOKEN: ${{ secrets.CYPRESS_ACCESS_TOKEN }}
+
+      - name: Archive test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: allure-results
+          path: |
+            allure-results/**
+            cypress/screenshots/**
+
+  delete-user:
+    needs: health-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6.5.0
+        with:
+          command: npm run delete-user
+        env:
+          CYPRESS_ACCESS_TOKEN: ${{ secrets.CYPRESS_ACCESS_TOKEN }}
+
+      - name: Archive test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: allure-results
+          path: |
+            allure-results/**
+            cypress/screenshots/**
+
+  get-user:
+    needs: health-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6.5.0
+        with:
+          command: npm run get-user
+        env:
+          CYPRESS_ACCESS_TOKEN: ${{ secrets.CYPRESS_ACCESS_TOKEN }}
+
+      - name: Archive test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: allure-results
+          path: |
+            allure-results/**
+            cypress/screenshots/**
+
+  patch-user:
+    needs: health-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6.5.0
+        with:
+          command: npm run patch-user
+        env:
+          CYPRESS_ACCESS_TOKEN: ${{ secrets.CYPRESS_ACCESS_TOKEN }}
+
+      - name: Archive test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: allure-results
+          path: |
+            allure-results/**
+            cypress/screenshots/**
+
+  post-user:
+    needs: health-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6.5.0
+        with:
+          command: npm run post-user
+        env:
+          CYPRESS_ACCESS_TOKEN: ${{ secrets.CYPRESS_ACCESS_TOKEN }}
+
+      - name: Archive test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: allure-results
+          path: |
+            allure-results/**
+            cypress/screenshots/**
+
+  put-user:
+    needs: health-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6.5.0
+        with:
+          command: npm run put-user
+        env:
+          CYPRESS_ACCESS_TOKEN: ${{ secrets.CYPRESS_ACCESS_TOKEN }}
+
+      - name: Archive test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: allure-results
+          path: |
+            allure-results/**
+            cypress/screenshots/**

@@ -1,0 +1,40 @@
+name: Cypress Single Execution
+
+on: [workflow_dispatch, push]
+
+jobs:
+
+  cypress-test:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.20.2' 
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress health check
+        run: npm run health
+        env:
+          CYPRESS_ACCESS_TOKEN: ${{ secrets.CYPRESS_ACCESS_TOKEN }}
+
+      - name: Run Cypress tests
+        run: npm run user
+        env:
+          CYPRESS_ACCESS_TOKEN: ${{ secrets.CYPRESS_ACCESS_TOKEN }}
+
+      - name: Archive test results
+        uses: actions/upload-artifact@v2
+        continue-on-error: true
+        with:
+          name: allure-results
+          path: |
+            allure-results/**
+            cypress/screenshots/**
